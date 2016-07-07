@@ -5,7 +5,7 @@ require_relative '../../lib/product.rb'
 RSpec.describe ShopBasket do
 
   context "#initialize" do
-    it "Raises an ArgumentError when warehouse is not provided" do
+    it "raises an ArgumentError when warehouse is not provided" do
       expect {
         ShopBasket.new(nil)
       }.to raise_error(ArgumentError)
@@ -13,19 +13,19 @@ RSpec.describe ShopBasket do
   end
 
   context "#add" do
-    it "Raises a TypeError when name is not a string" do
+    it "raises a TypeError when name is not a string" do
       expect {
         ShopBasket.new(WareHouse.new()).add 122
       }.to raise_error(TypeError)
     end
 
-    it "Doesn't add product to the basket if one is not available in the warehouse" do
+    it "doesn't add product to the basket if one is not available in the warehouse" do
       shop_basket = ShopBasket.new(WareHouse.new())
       shop_basket.add "milk"
       expect(shop_basket.basket).to be_empty
     end
 
-    it "Adds product to the basket if one is available in the warehouse" do
+    it "adds product to the basket if one is available in the warehouse" do
       shop_basket = ShopBasket.new(WareHouse.new([Product.new("milk", 25)]))
       shop_basket.add "milk"
       expect(shop_basket.basket).not_to be_empty
@@ -33,20 +33,20 @@ RSpec.describe ShopBasket do
   end
 
   context "#remove" do
-    it "Raises an error if the parameter is not a string" do
+    it "raises an error if the parameter is not a string" do
       expect {
         ShopBasket.new(WareHouse.new()).add 122
       }.to raise_error(TypeError)
     end
 
-    it "Doesn't remove anything if there is no requested thing to remove in a basket" do
+    it "doesn't remove anything if there is no requested thing to remove in a basket" do
       shop_basket = ShopBasket.new(WareHouse.new([Product.new("milk", 25)]))
       shop_basket.add "milk"
       shop_basket.remove "soap"
       expect(shop_basket.basket.length).to be(1)
     end
 
-    it "Removes the product from the basket" do
+    it "removes the product from the basket" do
       shop_basket = ShopBasket.new(WareHouse.new([Product.new("milk", 25)]))
       shop_basket.add "milk"
       shop_basket.remove "milk"
@@ -55,7 +55,7 @@ RSpec.describe ShopBasket do
   end
 
   context "#price_brutto" do
-    it "Return proper price brutto" do
+    it "returns proper price brutto" do
       shop_basket = ShopBasket.new(WareHouse.new([Product.new("milk", 5)]))
       shop_basket.add "milk"
       expect(shop_basket.price_brutto).to eql(6.15)
@@ -63,7 +63,7 @@ RSpec.describe ShopBasket do
   end
 
   context "#price_netto" do
-    it "Return proper price netto" do
+    it "return proper price netto" do
       shop_basket = ShopBasket.new(WareHouse.new([Product.new("milk", 5), Product.new("bread", 2)]))
       shop_basket.add "milk"
       shop_basket.add "bread"
@@ -72,7 +72,7 @@ RSpec.describe ShopBasket do
   end
 
   context "#receipt" do
-    it "Prints proper receipt" do
+    it "prints proper receipt" do
       basket = ShopBasket.new(WareHouse.new([Product.new("milk", 2), Product.new("bread", 2), Product.new("soap", 3)]))
       basket.add "milk"; basket.add "bread"; basket.add "soap"
       basket.remove("milk"); basket.remove("bread")
