@@ -32,7 +32,7 @@ class ShopBasket
   end
 
   def receipt
-    receipt =  "\n*******************"
+    receipt = "\n*******************"
     receipt += "\n*BIEDRONKA*"
     receipt += "\n*******************"
 

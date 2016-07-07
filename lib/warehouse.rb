@@ -10,18 +10,18 @@ class WareHouse
 
   def fetch name
     if product_index = available?(name)
-    	products.delete_at( product_index )
+      products.delete_at(product_index)
     end
   end
 
   def back product
-  	products << product 
+    products << product
   end
 
   private
   def available? name
     unless name.nil?
-    	products.index { |a| a.name == name }
+      products.index { |a| a.name == name }
     end
   end
 end	
