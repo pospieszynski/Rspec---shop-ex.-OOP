@@ -21,3 +21,5 @@ class Product
     raise TypeError unless name.is_a?(String) && price.is_a?(Numeric)
   end
 end
+
+

@@ -54,20 +54,20 @@ RSpec.describe ShopBasket do
     end
   end
 
-  context "#price_brutto" do
+  context "#price_gross" do
     it "returns proper price brutto" do
       shop_basket = ShopBasket.new(WareHouse.new([Product.new("milk", 5)]))
       shop_basket.add "milk"
-      expect(shop_basket.price_brutto).to eql(6.15)
+      expect(shop_basket.price_gross).to eql(6.15)
     end
   end
 
-  context "#price_netto" do
+  context "#price_net" do
     it "return proper price netto" do
       shop_basket = ShopBasket.new(WareHouse.new([Product.new("milk", 5), Product.new("bread", 2)]))
       shop_basket.add "milk"
       shop_basket.add "bread"
-      expect(shop_basket.price_netto).to eql(7)
+      expect(shop_basket.price_net).to eql(7)
     end
   end
 

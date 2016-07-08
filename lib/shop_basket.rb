@@ -23,11 +23,11 @@ class ShopBasket
     end
   end
 
-  def price_brutto
-    price_netto * 1.23
+  def price_gross
+    price_net * 1.23
   end
 
-  def price_netto
+  def price_net
     basket.reduce(0) { |sum, n| sum + n.price }
   end
 
@@ -42,8 +42,8 @@ class ShopBasket
       receipt += "\n #{k} -- #{v.count} szt.---  #{v.first.price} zł\n"
     end
     receipt += "\n*******************"
-    receipt += "\nTotal brutto --> #{price_brutto} zł \n"
-    receipt += "\nTotal netto --> #{price_netto} zł\n"
+    receipt += "\nTotal brutto --> #{price_gross} zł \n"
+    receipt += "\nTotal netto --> #{price_net} zł\n"
     receipt += "\n===================\n\n"
     receipt += "\nThank you for shopping, see you soon!"
     receipt
