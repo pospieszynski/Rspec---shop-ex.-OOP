@@ -24,4 +24,4 @@ class WareHouse
       products.index { |a| a.name == name }
     end
   end
-end	
+end

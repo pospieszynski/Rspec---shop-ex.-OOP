@@ -16,5 +16,3 @@ basket.add "milk"; basket.add "bread"; basket.add "soap"
 puts basket.basket.inspect
 basket.remove("milk"); basket.remove("bread")
 puts basket.receipt
-
-
