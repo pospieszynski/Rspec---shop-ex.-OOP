@@ -1,6 +1,6 @@
-require_relative './shop_basket.rb'
-require_relative './warehouse.rb'
-require_relative './product.rb'
+require_relative './lib/shop_basket.rb'
+require_relative './lib/warehouse.rb'
+require_relative './lib/product.rb'
 
 def seed_products
   commodities = ["milk", "chocolate", "orange", "apple", "soap", "bread", "butter"]
@@ -13,7 +13,6 @@ end
 
 basket = ShopBasket.new(WareHouse.new(seed_products))
 basket.add "milk"; basket.add "bread"; basket.add "soap"
-puts basket.basket.inspect
 basket.remove("milk"); basket.remove("bread")
 puts basket.receipt
 
